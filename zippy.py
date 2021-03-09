@@ -74,7 +74,7 @@ def get_file(link):
     return RemoteFile(url, size, name)
 
 def main():
-    with open('/content/drive/MyDrive/Ben 10 OM/urls.txt') as f:
+    with open('urls.txt') as f:
       links = [line.rstrip() for line in f]
     # Match links
     if len(links) == 0:
@@ -99,7 +99,7 @@ def main():
     # Download files
     for file in files:
         print('Downloading "%s" (%s)...' % (file.name, convert_size(file.size)))
-        target_file = join('/content/drive/MyDrive/Ben 10 OM/', file.name)
+        target_file = join('/downloads/', file.name)
         with open(target_file, 'wb') as f:
             # Copy bytes
             r = file.open()
